@@ -16,11 +16,17 @@ pip install -r requirements.txt
 Dataset structure
 
 dataset/
+
 ├── train/
+
 │   ├── normal/
+
 │   └── sensitive/
+
 └── val/
+
     ├── normal/
+    
     └── sensitive/
 
 🧩 Model Information
