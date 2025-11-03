@@ -11,8 +11,9 @@ __pycache__/
 *.csv
 *.json
 
-models/*.h5
+# Ignore model weights
 models/*.keras
+models/*.h5
 
 
 # --- Dataset folders ---
