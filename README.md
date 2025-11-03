@@ -18,7 +18,7 @@ dataset/
 │   └── sensitive/
 └── val/
     ├── normal/
-    └── sensitive/g
+    └── sensitive/
 
 Technology used
 
