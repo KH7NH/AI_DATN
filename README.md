@@ -8,7 +8,9 @@ Project to train **sensitive image classification (Sensitive Image Detection)** 
 Create virtual environment and install dependencies
 
 python -m venv venv
+
 venv\Scripts\activate
+
 pip install -r requirements.txt
 
 Dataset structure
