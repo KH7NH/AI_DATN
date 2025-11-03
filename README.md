@@ -3,7 +3,10 @@
 Project to train **sensitive image classification (Sensitive Image Detection)** model using TensorFlow/Keras using **EfficientNet-B3** architecture.
 
 ## ⚙️ Environment settings
-
+- **Python version:** 3.11  
+- **TensorFlow version:** 2.15+  
+- **Keras:** integrated (via TensorFlow)
+- **Operating System:** Windows 10/11 (recommended)
 
 Create virtual environment and install dependencies
 
