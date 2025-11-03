@@ -4,7 +4,7 @@ Project to train **sensitive image classification (Sensitive Image Detection)** 
 
 ## ⚙️ Environment settings
 
-### 1️⃣ Create virtual environment and install dependencies
+1️⃣ Create virtual environment and install dependencies
 
 ```bash
 python -m venv venv
@@ -18,7 +18,7 @@ dataset/
 │   └── sensitive/
 └── val/
     ├── normal/
-    └── sensitive/
+    └── sensitive/g
 
 Technology used
 

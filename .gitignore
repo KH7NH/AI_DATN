@@ -10,18 +10,9 @@ __pycache__/
 *.pkl
 *.csv
 *.json
-*.txt
-
-# --- Model checkpoints ---
-models/*.h5
-models/*.keras
-models/*.ckpt
-models/*.weights
-models/*.pb
-models/*.tflite
 
 
-# --- Dataset (bỏ qua toàn bộ dữ liệu) ---
+# --- Dataset folders ---
 dataset/
 
 
