@@ -1,0 +1,59 @@
+# =========================
+# 🧠 AI Sensitive Image Classifier - .gitignore
+# =========================
+
+# --- Python cache / build files ---
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.pkl
+*.csv
+*.json
+*.txt
+
+# --- Model checkpoints ---
+models/*.h5
+models/*.keras
+models/*.ckpt
+models/*.weights
+models/*.pb
+models/*.tflite
+
+
+# --- Dataset (bỏ qua toàn bộ dữ liệu) ---
+dataset/
+
+
+# --- Ignore ALL image files globally ---
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+*.tiff
+*.webp
+
+# --- Environment folders ---
+venv*/
+.venv/
+env/
+ENV/
+venv311/
+
+# --- Jupyter / Notebook checkpoints ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- IDE / OS generated files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Others ---
+*.zip
+*.rar
+*.tar
+*.gz
+*.7z
