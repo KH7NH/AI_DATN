@@ -15,6 +15,6 @@ img_array = np.expand_dims(img_array, axis=0)
 prediction = model.predict(img_array)[0][0]
 
 if prediction > 0.5:
-    print(f"⚠️  Ảnh này được dự đoán là SENSITIVE ({prediction:.2f})")
+    print(f"⚠️  This photo is predicted to be SENSITIVE ({prediction:.2f})")
 else:
-    print(f"✅  Ảnh này được dự đoán là NORMAL ({1 - prediction:.2f})")
+    print(f"✅  This photo is predicted to be NORMAL ({1 - prediction:.2f})")

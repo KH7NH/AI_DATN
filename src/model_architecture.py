@@ -5,11 +5,11 @@ from tensorflow.keras.optimizers import Adam
 
 def build_efficientnet_model(img_size=(224, 224, 3), num_classes=1):
     """
-    Tạo model EfficientNetB0 Fine-tuning
+    Create model EfficientNetB0 Fine-tuning
     """
     base_model = EfficientNetB0(weights='imagenet', include_top=False, input_shape=img_size)
-    base_model.trainable = False  # Freeze base model
-
+    base_model.trainable = False  
+    
     x = GlobalAveragePooling2D()(base_model.output)
     x = Dropout(0.4)(x)
     output = Dense(num_classes, activation='sigmoid')(x)

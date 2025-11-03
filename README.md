@@ -19,15 +19,15 @@ dataset/
 
 ├── train/
 
-│   ├── normal/
+   ├── normal/
 
-│   └── sensitive/
+   └── sensitive/
 
 └── val/
 
-    ├── normal/
-    
-    └── sensitive/
+   ├── normal/
+
+   └── sensitive/
 
 🧩 Model Information
 

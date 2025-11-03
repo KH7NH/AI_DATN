@@ -10,18 +10,14 @@ from sklearn.utils.class_weight import compute_class_weight
 import numpy as np
 import matplotlib.pyplot as plt
 
-# -----------------------------------------------------
-# 1️⃣ Đường dẫn dữ liệu
-# -----------------------------------------------------
+# 1 Data path
 BASE_DIR = r"D:\AI\dataset"
 TRAIN_DIR = os.path.join(BASE_DIR, "train")
 VAL_DIR = os.path.join(BASE_DIR, "val")
 MODEL_DIR = os.path.join(r"D:\AI", "models")
 os.makedirs(MODEL_DIR, exist_ok=True)
 
-# -----------------------------------------------------
-# 2️⃣ Data Augmentation mạnh mẽ hơn
-# -----------------------------------------------------
+# 2 More powerful data augmentation
 IMG_SIZE = (300, 300)
 BATCH_SIZE = 32
 
@@ -53,22 +49,18 @@ val_gen = val_datagen.flow_from_directory(
     class_mode='binary'
 )
 
-print("\n📊 Lớp dữ liệu:", train_gen.class_indices)
+print("\n📊 Data class:", train_gen.class_indices)
 
-# -----------------------------------------------------
-# 3️⃣ Cân bằng lớp
-# -----------------------------------------------------
+# 3 Class balance
 y_train = train_gen.classes
 class_weights = compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train)
 class_weights = {i: w for i, w in enumerate(class_weights)}
 print("⚖️ Class Weights:", class_weights)
 
-# -----------------------------------------------------
-# 4️⃣ Xây dựng EfficientNetB0 (fine-tune sâu hơn)
-# -----------------------------------------------------
+# 4 Building EfficientNetB0 (deeper fine-tuning)
 base_model = EfficientNetB3(weights='imagenet', include_top=False, input_shape=(300, 300, 3))
 
-# Giữ lại 60 layer đầu, fine-tune từ layer 60 trở đi
+# Keep the first 60 layers, fine-tune from layer 60 onwards
 for layer in base_model.layers[:60]:
     layer.trainable = False
 for layer in base_model.layers[60:]:
@@ -91,9 +83,7 @@ model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accurac
 
 model.summary()
 
-# -----------------------------------------------------
-# 5️⃣ Callbacks
-# -----------------------------------------------------
+# 5 Callbacks
 checkpoint_path = os.path.join(MODEL_DIR, "efficientnet_b3_best.keras")
 
 checkpoint = ModelCheckpoint(
@@ -121,9 +111,7 @@ reduce_lr = ReduceLROnPlateau(
 
 csv_logger = CSVLogger(os.path.join(MODEL_DIR, "training_log.csv"), append=False)
 
-# -----------------------------------------------------
-# 6️⃣ Huấn luyện
-# -----------------------------------------------------
+# 6 Train
 history = model.fit(
     train_gen,
     epochs=40,
@@ -132,16 +120,12 @@ history = model.fit(
     callbacks=[checkpoint, earlystop, reduce_lr, csv_logger]
 )
 
-# -----------------------------------------------------
-# 7️⃣ Lưu mô hình cuối cùng
-# -----------------------------------------------------
+# 7 Save the final model
 final_model_path = os.path.join(MODEL_DIR, "efficientnet_b3_final.keras")
 model.save(final_model_path)
-print(f"\n✅ Huấn luyện hoàn tất! Mô hình đã được lưu tại: {final_model_path}")
+print(f"\n✅ Training complete! Model saved at: {final_model_path}")
 
-# -----------------------------------------------------
-# 8️⃣ Vẽ biểu đồ và lưu lại
-# -----------------------------------------------------
+# 8 Draw a chart and save it
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 loss = history.history['loss']
