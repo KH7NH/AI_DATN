@@ -52,5 +52,3 @@ Thumbs.db
 *.tar
 *.gz
 *.7z
-models/*.keras
-models/*.h5
