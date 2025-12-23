@@ -3,7 +3,7 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 
-MODEL_PATH = "D:\AI\models\efficientnet_b3_final.keras"
+MODEL_PATH = "D:\DATN\AI_Detection\models\efficientnet_b3_final.keras"
 
 model = load_model(MODEL_PATH)
 img_path = r"D:\AI\test\sample.jpg"  
